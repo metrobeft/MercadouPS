@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head> 
+	<meta http-equiv="Content-Language" content="pt-br">
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />   
+    <meta name="keywords" content=""> <!--keywords-->
+    <meta name="description" content=""> <!--descrição-->
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title> Mercadou </title>
+    
+    <!--Importando Bootstrap CSS-->
+    <link rel="stylesheet" type="text/css" href="CSS/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="CSS/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="CSS/bootstrap-grid.css">
+	<link rel="stylesheet" type="text/css" href="CSS/bootstrap-grid.min.css">
+	<link rel="stylesheet" type="text/css" href="CSS/bootstrap-reboot.css">
+	<link rel="stylesheet" type="text/css" href="CSS/bootstrap-reboot.min.css">
+</head>
+
+<body id="" class="">
+    
+
+    <div class="card-group"style="width: 50rem;"> 
+        <div class="card" style="width: 23rem;">
+            <img src="img/ScreenSelector.png" class="card-img-top" alt="...">
+            <div class="card-body">
+
+              <h5 class="card-title"> <center>Daniel Henrique Oliveira Pinho</br> (Super Estágiario)</center></h5>
+              <center>
+                  <a href="https://www.linkedin.com/in/danielhenriqueoliveirapinho/">
+                    <img src="img/01.png" class="img-fluid"  alt="Responsive Image" width="70" height="70"/>
+                  </a>
+                  <a href="https://www.facebook.com/metrobeft">
+                    <img src="img/02.png" class="img-fluid"  alt="Responsive Image" width="70" height="70"/>
+                  </a>
+                    <a href="https://github.com/metrobeft">
+                      <img src="img/03.png" class="img-fluid"  alt="Responsive Image" width="70" height="70"/>
+                    </a>
+              </center>
+                <p class="card-text"> Crie um input que ao receber um número, mostre apenas os números primos logo em baixo.
+								 <br>Bônus: criar validação no input (não aceitar texto ou caracteres especiais)</p>
+              <form class="form-inline">
+                <div class="form-group mx-sm-3 mb-2">
+                  <label for="numero" class="sr-only">Digite um número inteiro:</label>
+                  <input type="text" class="form-control" id="numero" name="numero" placeholder="Insira o Numero..." oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+                </div>
+                <button type="button" class="btn btn-primary mb-2" onclick="algoritmo()">Calcular</button>
+                
+              </form>
+
+              <ul class="pagination">
+                  
+                             
+                  
+                  <li class="page-item"><a class="page-link" href="index.html">Q1</a></li>
+                  <li class="page-item"><a class="page-link" href="Q1b.html">Q2</a></li>
+                  <li class="page-item"><a class="page-link" href="Q1C.html">Q3</a></li>
+                  <li class="page-item">
+                      <a class="page-link" href="Q1b.html" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                      </a>
+                    </li>
+              </ul>
+
+            </div>
+        </div>         
+          <div class="card scrollbar scrollbar-primary"  style=" overflow: auto; height: 60rem; width: 23rem">
+
+              <ul class="list-group">
+              <center><p id="resultado">Resultados do Algoritmo...</p></center>
+              </ul>
+          </div>  
+    </div>
+
+        <!--Importando JS Bootstrap-->
+        <script src="js/bootstrap.bundle.js"></script>
+        <script src="js/bootstrap.bundle.min.js"></script>
+        <script src="js/bootstrap.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/myscrollbar.js"></script>
+
+    <script>
+      function algoritmo() {
+        var num = document.getElementById('numero').value;
+        var resultado = "";
+        var i,k;
+		var divisores = 0;
+		for (k = 1; k <= num; k++)
+		{
+			for (i = 1; i <= k; i++)
+			{
+				if (k%i == 0)
+				{
+					divisores=divisores+1;
+				}
+			}
+			if (num<0) 
+			{
+				resultado="Valor deve ser inteiro <br>";
+			}else if(divisores<=2)
+			{
+				resultado=resultado+"<li>O numero "+k+" é primo</li> <br>";
+			}
+			divisores=0;
+		}
+        document.getElementById('resultado').innerHTML = resultado;
+      }
+      </script>
+
+</body>
+</html>
